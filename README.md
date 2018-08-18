@@ -18,7 +18,7 @@ snake("foo bar")          # foo_bar
 screamingSnake("foo bar") # FOO_BAR
 pascal("foo bar")         # FooBar
 camel("foo bar")          # fooBar
-splitCase("foo bar)       # @["foo", "bar"]
+splitCase("foo bar")      # @["foo", "bar"]
 ```
 
 ### For Idents Only
