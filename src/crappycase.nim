@@ -58,7 +58,7 @@ proc kebab*(value: string): string =
         doAssert kebab("helloWorld") == "hello-world"
         doAssert kebab("i am groot") == "i-am-groot"
 
-    value
+    result = value
         .splitCase
         .mapIt(it.toLowerAscii)
         .join("-")
@@ -70,7 +70,7 @@ proc snake*(value: string): string =
         doAssert snake("helloWorld") == "hello_world"
         doAssert snake("i am groot") == "i_am_groot"
 
-    value
+    result = value
         .splitCase
         .mapIt(it.toLowerAscii)
         .join("_")
@@ -82,7 +82,7 @@ proc screamingSnake*(value: string): string =
         doAssert screamingSnake("helloWorld") == "HELLO_WORLD"
         doAssert screamingSnake("i am groot") == "I_AM_GROOT"
 
-    value.snake.toUpperAscii
+    result = value.snake.toUpperAscii
 
 
 proc pascal*(value: string): string =
@@ -91,7 +91,7 @@ proc pascal*(value: string): string =
         doAssert pascal("helloWorld") == "HelloWorld"
         doAssert pascal("i am groot") == "IAmGroot"
 
-    value
+    result = value
         .splitCase
         .mapIt(it.toLowerAscii)
         .mapIt(it.toUpperFirstLetter)
@@ -104,6 +104,7 @@ proc camel*(value: string): string =
         doAssert camel("helloWorld") == "helloWorld"
         doAssert camel("i am groot") == "iAmGroot"
 
+    result = ""
     let words = splitCase value
     for i in 0..high(words):
         var word = words[i].toLowerAscii
