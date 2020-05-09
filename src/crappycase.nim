@@ -1,10 +1,7 @@
-from sequtils import mapIt
-from strutils import
-    isDigit, isAlphaNumeric, toUpperAscii, isUpperAscii,
-    join, toLowerAscii, isLowerAscii
+import sequtils, strutils
 
 
-proc toUpperFirstLetter(value: string): string =
+func toUpperFirstLetter(value: string): string =
     ## Makes the first letter of a string uppercase.
     if value.len == 0:
         result = value
@@ -12,7 +9,7 @@ proc toUpperFirstLetter(value: string): string =
         result = value[0].toUpperAscii() & value[1..high(value)]
 
 
-proc splitCase*(value: string): seq[string] =
+func splitCase*(value: string): seq[string] =
     ## Splits a string on word, whitespace, or identifier tokens.
     ##
     ## It will drop the non-ascii characters along the way, so this is really
@@ -52,7 +49,7 @@ proc splitCase*(value: string): seq[string] =
         result.add currentWord
 
 
-proc kebab*(value: string): string =
+func kebab*(value: string): string =
     ## Converts a string into a kebab case.
     runnableExamples:
         doAssert kebab("helloWorld") == "hello-world"
@@ -64,7 +61,7 @@ proc kebab*(value: string): string =
         .join("-")
 
 
-proc snake*(value: string): string =
+func snake*(value: string): string =
     ## Converts a string into lower snake case.
     runnableExamples:
         doAssert snake("helloWorld") == "hello_world"
@@ -76,7 +73,7 @@ proc snake*(value: string): string =
         .join("_")
 
 
-proc screamingSnake*(value: string): string =
+func screamingSnake*(value: string): string =
     ## Converts a string into upper snake case.
     runnableExamples:
         doAssert screamingSnake("helloWorld") == "HELLO_WORLD"
@@ -85,7 +82,7 @@ proc screamingSnake*(value: string): string =
     result = value.snake.toUpperAscii
 
 
-proc pascal*(value: string): string =
+func pascal*(value: string): string =
     ## Converts a string into pascal case.
     runnableExamples:
         doAssert pascal("helloWorld") == "HelloWorld"
@@ -98,7 +95,7 @@ proc pascal*(value: string): string =
         .join ""
 
 
-proc camel*(value: string): string =
+func camel*(value: string): string =
     ## Converts a string into camel case.
     runnableExamples:
         doAssert camel("helloWorld") == "helloWorld"
